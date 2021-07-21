@@ -1,1 +1,1 @@
-# CoronaDashboard
+# CoronaVirusDashboard
