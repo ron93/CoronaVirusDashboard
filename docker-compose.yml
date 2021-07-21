@@ -13,7 +13,7 @@ services:
         volumes: 
             - ./seq-data:/data
 
-    postgres_sql_database:
+    postgresql_database:
         image: postgres:latest
         environment: 
             - POSTGRES_USER=admin
@@ -24,7 +24,7 @@ services:
             - "5432:5432"
         restart: unless-stopped
         volumes: 
-            - ./database:/var/lib/postgresql/data
+            - databasedata:/var/lib/postgresql/data
 
     pgadmin:
         image: dpage/pgadmin4
@@ -36,6 +36,15 @@ services:
         restart: unless-stopped
         volumes: 
             - ./pgadmin:/root/.pgadmin
+    
+    coronaapiservice:
+        image: coronaapiservice
+        build: 
+            context: .
+            dockerfile: CoronaApiService/Dockerfile
+        depends_on: 
+            - seq
+            - postgresql_database
 volumes: 
-    database:
+    databasedata:
       
