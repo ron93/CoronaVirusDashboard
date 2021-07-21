@@ -12,7 +12,7 @@ namespace CoronaApiService.Models
         [JsonProperty("country_code")]
         public string CountryCode { get; set; }
         [JsonProperty("country_population")]
-        public int CountryPopulation { get; set; }
+        public int? CountryPopulation { get; set; }
         [JsonProperty("province")]
         public string Province { get; set; }
         [JsonProperty("last_updated")]
